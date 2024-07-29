@@ -1,9 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useCity } from '../../context/CityContext';
 import styles from './WeatherApp.module.css';
 
 const SearchBar = () => {
+  const { setCity } = useCity();
+  const [input, setInput] = useState('');
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (input) {
+      setCity(input);
+      setInput('');
+    }
+  };
+
+  const handleLocate = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          fetch(
+            `https://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${latitude},${longitude}&lang=fr`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              setCity(data.location.name);
+            })
+            .catch((error) =>
+              console.error('Error fetching location weather data:', error)
+            );
+        },
+        (error) => console.error('Error getting geolocation:', error)
+      );
+    }
+  };
+
   return (
-    <form className={styles.searchBar}>
+    <form className={styles.searchBar} onSubmit={handleSubmit}>
       <div className={styles.searchInputWrapper}>
         <img
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/3165774e2eee49faadc793ecc0e930e235a913c9149c8007a9edb52e118c2d55?apiKey=05838f7f259a426e89a3459802fa49d1&&apiKey=05838f7f259a426e89a3459802fa49d1"
@@ -14,6 +47,8 @@ const SearchBar = () => {
           type="text"
           className={styles.searchText}
           placeholder="Recherchez votre ville"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
         />
       </div>
       <button type="submit" className={styles.locateButton}>
@@ -22,7 +57,9 @@ const SearchBar = () => {
           alt="Locate"
           className={styles.locateIcon}
         />
-        <span className={styles.locateText}>Se localiser</span>
+        <span className={styles.locateText} onClick={handleLocate}>
+          Se localiser
+        </span>
       </button>
     </form>
   );

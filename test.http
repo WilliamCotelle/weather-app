@@ -1,14 +1,14 @@
-@apiKey = 2fb6e5addcmsh1322df483636808p164ae7jsn0a8259f9946f
-@apiHost = open-weather13.p.rapidapi.com
+
+@apiKey = 83a9eba134080806eac8090027a5ea0f
+@apiHost = api.openweathermap.org
 
 ### Tester la météo pour Paris
-GET https://{{apiHost}}/city/paris/FR
-X-RapidAPI-Key: {{apiKey}}
-X-RapidAPI-Host: {{apiHost}}
+GET https://{{apiHost}}/data/2.5/weather?q=Paris&appid={{apiKey}}&units=metric&lang=fr
 
 ### Tester les prévisions météo pour les 5 prochains jours pour Paris (Latitude: 48.8566, Longitude: 2.3522)
-GET https://open-weather13.p.rapidapi.com/city/fivedaysforcast/48.8566/2.3522
-X-RapidAPI-Key: {{apiKey}}
-X-RapidAPI-Host: open-weather13.p.rapidapi.com
+GET https://{{apiHost}}/data/2.5/forecast?lat=48.8566&lon=2.3522&appid={{apiKey}}&units=metric&lang=fr
+
+### Test des prévisions météo
+GET https://api.weatherapi.com/v1/forecast.json?key=YOUR_API_KEY&q=Paris&days=1&lang=fr
 
 
