@@ -13,15 +13,7 @@
   height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
-  /* background: linear-gradient(
-    180deg,
-    rgba(0, 150, 136, 0.8) 0%,
-    rgba(103, 58, 183, 0.8) 100%
-  ); */
-
-  /* background: linear-gradient(135deg, #121212, #1c1c1c); */
   background: linear-gradient(135deg, #0d0d0d, #2e2e2e);
-  /* background: linear-gradient(135deg, #1c1c1c, #1a1a2e); */
 }
 
 @media (max-width: 991px) {
@@ -748,6 +740,23 @@
   gap: 1%;
   font-size: 1.5rem;
   white-space: nowrap;
+}
+.hourlyForecastList {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.hourlyForecastItem {
+  min-width: 100px;
+  flex: 0 0 auto;
+  margin-right: 10px;
+}
+.hourlyForecastList::-webkit-scrollbar {
+  display: none; /* Pour Chrome */
+}
+.hourlyForecastList::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
 }
 
 @media (max-width: 991px) {
