@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenue dans le **Weather App**, une application simple mais puissante pour obtenir des informations météorologiques en temps réel pour n'importe quelle ville dans le monde.
 
-Currently, two official plugins are available:
+## Stack Technologique
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend** :
 
-## Expanding the ESLint configuration
+  - **React** : Bibliothèque JavaScript pour la construction d'interfaces utilisateur interactives.
+  - **CSS** : Pour le stylisme de l'application, en utilisant des techniques modernes de responsive design.
+  - **Axios** : Pour les requêtes HTTP afin de récupérer les données météorologiques.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **API** :
+  - **OpenWeatherMap API** : Utilisée pour obtenir les données météorologiques en temps réel.
 
-- Configure the top-level `parserOptions` property like this:
+## Fonctionnalités
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Recherche par Ville** :
+  - L'utilisateur peut rechercher les conditions météorologiques actuelles en saisissant le nom d'une ville.
+- **Affichage Dynamique des Données** :
+  - Affichage des données comme la température, l'humidité, la vitesse du vent, et les conditions météorologiques générales.
+- **Mise à Jour en Temps Réel** :
+  - Les informations météorologiques sont récupérées à partir de l'API en temps réel pour fournir les données les plus précises.
+- **Interface Responsive** :
+  - L'application est entièrement responsive, offrant une expérience utilisateur fluide sur tous les appareils, qu'il s'agisse de desktop, tablette ou mobile.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Idée du Projet
+
+Le **Weather App** a été conçu pour offrir une interface utilisateur simple et intuitive permettant de récupérer rapidement des informations météorologiques essentielles. Ce projet met en avant les compétences en développement frontend, en particulier avec React, ainsi que la capacité à intégrer des API tierces pour enrichir les fonctionnalités d'une application web.

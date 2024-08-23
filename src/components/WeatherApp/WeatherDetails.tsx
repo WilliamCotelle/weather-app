@@ -60,9 +60,9 @@ const WeatherDetails = () => {
   const formatTime = (time: string) => {
     try {
       const time24h = convertTo24HourFormat(time);
-      console.log(`Converting time: ${time} to 24-hour format: ${time24h}`);
+      // console.log(`Converting time: ${time} to 24-hour format: ${time24h}`);
       const date = new Date(`1970-01-01T${time24h}:00`);
-      console.log(`Formatted date: ${date}`);
+      // console.log(`Formatted date: ${date}`);
       return date.toLocaleTimeString('fr-FR', {
         hour: '2-digit',
         minute: '2-digit',
